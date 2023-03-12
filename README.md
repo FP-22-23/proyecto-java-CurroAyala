@@ -2,11 +2,11 @@
 proyecto-java-CurroAyala created by GitHub Classroom
 
 Estructura de las carpetas del proyecto  
-/src: Directorio con el código fuente.  
-fp.shootings: Paquete que contiene los tipos del proyecto.  
-fp.shootings.test: Paquete que contiene las clases de test del proyecto.  
-fp.utiles: Paquete que contiene las clases de utilidad.  
-/data: Contiene el dataset del proyecto.  
+  /src: Directorio con el código fuente.  
+    fp.shootings: Paquete que contiene los tipos del proyecto.  
+    fp.shootings.test: Paquete que contiene las clases de test del proyecto.  
+    fp.utiles: Paquete que contiene las clases de utilidad.  
+  /data: Contiene el dataset del proyecto.  
 fatal-police-shootings-data-edited.csv: Archivo csv que contiene datos de diferentes tiroteos con víctimas en Estados Unidos.  
 
 
