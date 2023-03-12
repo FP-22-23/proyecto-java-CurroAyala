@@ -24,3 +24,23 @@ Originalmente tiene 13 columnas y cada fila contiene datos sobre un tiroteo con 
 10. signs_of_mental_illness, de tipo Boolean: indica si la víctima tenía indicios de enfermedad mental o no.  
 11. police, de tipo String: indica el tipo de policía que acudió al tiroteo.  
 12. number_of_officers, de tipo Integer: indica el número de agentes que acudieron al tiroteo.  
+
+
+TIPOS IMPLEMENTADOS  
+
+Tipo base - Tipo FatalShooting  
+
+  1. nombre: de tipo String  
+  2. fecha: de tipo LocalDate  
+	3. causaMuerte: de tipo String  
+	4. edad: de tipo Integer  
+	5. genero: de tipo TipoGenero  
+	6. raza: de tipo TipoRaza  
+	7. estatura: de tipo Double  
+	8. ciudad:  de tipo String  
+	9. estado: de tipo String  
+	10. señalesEnfermedadMental: de tipo Boolean  
+	11. patrullaPolicial: de tipo auxiliar PatrullaPolicial  
+	12. implicados, de tipo List<String>  
+
+
