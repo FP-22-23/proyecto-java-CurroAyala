@@ -45,3 +45,18 @@ Tipo base - Tipo FatalShooting
 14. grupoEdad, es una propiedad derivada de la edad  
 
 
+CONSTRUCTORES  
+
+Constructor 1: tiene un parámetro por cada propiedad básica.  
+Constructor 2: crea un tipo FatalShooting solo el nombre, la edad, la fecha y la cidad.  
+
+  
+RESTRICCIONES  
+
+Restricción 1: el nombre no puede ser nulo o estar vacío  
+Restricción 2: la edad no puede ser menor que 0  
+Restricción 3: la estatura no puede ser menor que 0
+
+
+CRITERIO DE ORDENACIÓN: por fecha, ciudad, y nombre  
+
