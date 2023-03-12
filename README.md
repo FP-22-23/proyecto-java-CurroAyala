@@ -30,17 +30,18 @@ TIPOS IMPLEMENTADOS
 
 Tipo base - Tipo FatalShooting  
 
-  1. nombre: de tipo String  
-  2. fecha: de tipo LocalDate  
-	3. causaMuerte: de tipo String  
-	4. edad: de tipo Integer  
-	5. genero: de tipo TipoGenero  
-	6. raza: de tipo TipoRaza  
-	7. estatura: de tipo Double  
-	8. ciudad:  de tipo String  
-	9. estado: de tipo String  
-	10. señalesEnfermedadMental: de tipo Boolean  
-	11. patrullaPolicial: de tipo auxiliar PatrullaPolicial  
-	12. implicados, de tipo List<String>  
+1. nombre: de tipo String  
+2. fecha: de tipo LocalDate  
+3. causaMuerte: de tipo String  
+4. edad: de tipo Integer  
+5. genero: de tipo TipoGenero  
+6. raza: de tipo TipoRaza  
+7. estatura: de tipo Double  
+8. ciudad:  de tipo String  
+9. estado: de tipo String  
+10. señalesEnfermedadMental: de tipo Boolean  
+11. patrullaPolicial: de tipo auxiliar PatrullaPolicial  
+13. implicados, de tipo List<String>  
+14. grupoEdad, es una propiedad derivada de la edad  
 
 
