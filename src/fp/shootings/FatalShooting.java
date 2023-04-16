@@ -76,8 +76,12 @@ public class FatalShooting implements Comparable<FatalShooting> {
 		return nombre;
 	}
 	
-	public LocalDate getFecha() {
-		return fecha;
+	public String getFecha() {
+		return formatearFecha(fecha);
+	}
+	
+	public Integer getAño() {
+		return fecha.getYear();
 	}
 	
 	public String getCausaMuerte() {
@@ -104,12 +108,12 @@ public class FatalShooting implements Comparable<FatalShooting> {
 		return res;
 	}
 	
-	public TipoGenero getGenero() {
-		return genero;
+	public String getGenero() {
+		return formatearGenero(genero);
 	}
 	
-	public TipoRaza getRaza() {
-		return raza;
+	public String getRaza() {
+		return formatearRaza(raza);
 	}
 	
 	public Double getEstatura() {
@@ -245,11 +249,15 @@ public class FatalShooting implements Comparable<FatalShooting> {
 			case N:
 				res = "Estadounidense nativo";
 				break;
+			case O:
+				res = "Árabe";
+			case UNDEFINED:
+				res = "Raza no definida";
 			}			
 		}
 		return res;
 	}
-	
+
 	
 	
 	//REPRESENTACIÓN COMO CADENA

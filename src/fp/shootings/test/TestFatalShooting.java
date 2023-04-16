@@ -32,7 +32,7 @@ public class TestFatalShooting {
 							new PatrullaPolicial(TipoPolicia.LOCAL,2));
 
 		
-		System.out.println("-----------------------------------------------------");
+		System.out.println("\n-----------------------------------------------------");
 //		REPRESENTACIÓN COMO CADENA
 		System.out.println(fs1.toString());
 //		System.out.println(fs2);
@@ -40,13 +40,13 @@ public class TestFatalShooting {
 		System.out.println(fs4.toString());
 		System.out.println(fs5.toString());
 		
-		System.out.println("-----------------------------------------------------");
+		System.out.println("\n-----------------------------------------------------");
 //		FORMATO CORTO
 		System.out.println(fs1.formatoCorto());
 		System.out.println(fs4.formatoCorto());
 
 		
-		System.out.println("-----------------------------------------------------");
+		System.out.println("\n-----------------------------------------------------");
 //		TESTs MÉTODOS GETTER
 		System.out.println(fs1.getNombre() + ", " + fs1.getFecha() + ", " + fs1.getCausaMuerte() +
 						", " + fs1.getEdad() + ", " + fs1.getGenero() + ", " + fs1.getRaza() +
@@ -54,7 +54,7 @@ public class TestFatalShooting {
 						", " + fs1.getSeñalesEnfermedadMental());
 		
 		
-		System.out.println("-----------------------------------------------------");
+		System.out.println("\n-----------------------------------------------------");
 //		TEST DE OTRO MÉTODOS
 		fs5.añadirImplicado("Louis Hamill");
 		fs5.añadirImplicado("Anne Brown");
@@ -64,20 +64,20 @@ public class TestFatalShooting {
 		System.out.println(fs5.getImplicados());
 		
 		
-		System.out.println("-----------------------------------------------------");
+		System.out.println("\n-----------------------------------------------------");
 //		TEST IGUALDAD
 		System.out.println(fs1.equals(fs2));
 		System.out.println(fs1.equals(fs3));
 		System.out.println(fs3.equals(fs4));
 		
 
-		System.out.println("-----------------------------------------------------");
+		System.out.println("\n-----------------------------------------------------");
 //		TEST DE ORDENACIÓN
 		System.out.println(fs1.compareTo(fs3));
 		System.out.println(fs1.compareTo(fs5));
 		
 		
-		System.out.println("-----------------------------------------------------");
+		System.out.println("\n-----------------------------------------------------");
 //		TEST DIFERENCIA NÚMERO AGENTES
 		System.out.println(fs1.getPatrullaPolicial().getDifAgentes(fs3.getPatrullaPolicial()));
 	}
