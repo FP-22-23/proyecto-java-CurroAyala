@@ -1,9 +1,6 @@
 # proyecto-java-CurroAyala
 proyecto-java-CurroAyala created by GitHub Classroom
 
-# proyecto-java-CurroAyala
-proyecto-java-CurroAyala created by GitHub Classroom  
-
 ## ESTRUCTURA DE LAS CARPETAS DEL PROYECTO  
 /src: Directorio con el código fuente.  
 fp.shootings: Paquete que contiene los tipos del proyecto.  
