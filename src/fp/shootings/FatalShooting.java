@@ -136,6 +136,10 @@ public class FatalShooting implements Comparable<FatalShooting> {
 		return patrullaPolicial;
 	}
 	
+	public Integer getNumAgentes() {
+		return patrullaPolicial.numAgentes();
+	}
+	
 	public List<String> getImplicados() {
 		return implicados;
 	}

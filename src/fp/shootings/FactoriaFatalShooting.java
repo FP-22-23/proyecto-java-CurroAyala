@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import fp.utiles.checkers.Checkers;
 
@@ -33,8 +35,26 @@ public class FactoriaFatalShooting {
 					señalesEnfermedadMental,new PatrullaPolicial(tipoPolicia,numAgentes));
 	}
 	
-	
 	public static FatalShootings leerFatalShootings(String rutaFichero) {
+		FatalShootings res = null;
+		try {
+			List<FatalShooting> fs =
+					Files.lines(Paths.get(rutaFichero)).
+					skip(1).
+					map(FactoriaFatalShooting::parsearFatalShooting).
+					collect(Collectors.toList());
+			res = new FatalShootings(fs);
+		} 
+		catch(IOException e) {
+			System.out.println("No se ha encontrado el fichero." + rutaFichero);
+		}
+		
+		return res;
+	}
+	
+	
+//	Método tercera entrega
+	public static FatalShootings leerFatalShootings2(String rutaFichero) {
 		FatalShootings res = null;
 		try {
 			Stream<FatalShooting> fs =

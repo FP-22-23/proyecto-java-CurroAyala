@@ -1,11 +1,15 @@
 package fp.shootings;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.SortedMap;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import fp.utiles.checkers.Checkers;
@@ -21,6 +25,11 @@ public class FatalShootings {
 		fatalShootings = new LinkedList<FatalShooting>();
 	}
 	
+	public FatalShootings(Collection<FatalShooting> fatalShootings) {
+		this.fatalShootings = new LinkedList<FatalShooting>(fatalShootings);
+	}
+	
+//	Tercer constructor (tercera entrega)
 	public FatalShootings(Stream<FatalShooting> fatalShootings) {
 		this.fatalShootings = fatalShootings.collect(Collectors.toList());
 	}
@@ -139,5 +148,86 @@ public class FatalShootings {
 	}
 	
 	
-
-}
+//	MÉTODOS IMPLEMENTADOS CON STREAM
+	
+//	BLOQUE 1
+	
+//	Función tipo 1: COMPROBAR SI EXISTE un caso en el que haya fallecido una persona con un 
+//					nombre dado.
+	public List<String> comprobarCasoPorNombre2(String nombre) {
+		return fatalShootings.stream().filter(x -> x.getNombre().equals(nombre)).
+				map(FatalShooting::formatoCorto).collect(Collectors.toList());
+	}
+	
+//	Función tipo 2: CALCULAR LA MEDIA de las víctimas.
+	public Integer calcularMediaEdadVictimas2() {
+		Double res = fatalShootings.stream().collect(Collectors.averagingInt(FatalShooting::getEdad));
+		return res.intValue();
+	}
+	
+//	Función tipo 3: SELECCIONAR los casos en los que las víctimas tenían señas de enfermedad mental.
+	public ArrayList<String> seleccionarCasosEnfermedadMental2() {
+		return fatalShootings.stream().filter(x -> x.getSeñalesEnfermedadMental()).map(FatalShooting::formatoCorto).
+				collect(Collectors.toCollection(ArrayList::new));
+	}
+	
+//	Función tipo 4: Hallar la víctima mujer MÁS JOVEN (mínimo).
+	public String hallarMujerMasJoven() {
+		return fatalShootings.stream().filter(x -> x.getGenero().equals("Mujer")).
+				max(Comparator.comparing(FatalShooting::getEdad)).get().formatoCorto();
+	}
+	
+//	Función tipo 5: Selección, filtrado y ordenación.
+	public ArrayList<String> victimasDeRazaNegraPorEdad() {
+		return fatalShootings.stream().filter(x -> x.getRaza().equals("Negra")).
+				sorted(Comparator.comparing(FatalShooting::getEdad)).map(FatalShooting::formatoCorto).
+				collect(Collectors.toCollection(ArrayList::new));
+	}
+	
+	
+//	BLOQUE 2
+	
+//	Función tipo 6: CONTAR en un MAP las víctimas que han habido en cada año 
+//	(misma función que la tipo 5 de la segunda entrega).
+	public Map<Integer, Long> contarPorAño2() {
+		return fatalShootings.stream().collect(Collectors.groupingBy(FatalShooting::getAño,Collectors.counting()));
+	}
+	
+//	Función tipo 7: Hallar la media de número de agentes en cada caso con MAPPING.
+	public int mediaNumAgentes() {
+		return fatalShootings.stream().
+			map(FatalShooting::getPatrullaPolicial).
+			collect(Collectors.mapping(PatrullaPolicial::numAgentes, Collectors.averagingInt(Integer::intValue))).
+			intValue();
+	}
+	
+//	Función tipo 8: Crear un MAP cuyas claves son las distinas razas y los valores son la persona más alta de cada raza.
+	public Map<String, String> personasMasAltasPorRaza() {
+		Comparator<FatalShooting> c = Comparator.comparingDouble(FatalShooting::getEstatura);
+		
+		return fatalShootings.stream().collect(Collectors.groupingBy(FatalShooting::getRaza,
+				Collectors.collectingAndThen(Collectors.maxBy(c), opt -> opt.map(FatalShooting::formatoCorto).
+						orElse(""))));
+	}
+	
+	
+//	Función tipo 9: Crear un MAP cuyas claves son las distintas causas de muerte y los valores son los n casos a los
+//	que acudieron más agentes policiales.
+	public SortedMap<String, List<FatalShooting>> nCasosMasAgentesPorCausaMuerte(Integer n) {
+		Comparator<FatalShooting> c = Comparator.comparing(FatalShooting::getNumAgentes);
+		
+		return fatalShootings.stream().collect(Collectors.groupingBy(FatalShooting::getCausaMuerte,TreeMap::new,
+				Collectors.collectingAndThen(Collectors.toList(), x -> x.stream().sorted(c.reversed()).limit(n).
+						collect(Collectors.toList()))));
+	}
+	
+	
+//	Función tipo 10: hallar la raza con la persona más alta.
+	public String razaConPersonaMasAlta() {
+		Map<String, String> aux = personasMasAltasPorRaza();
+		
+		return aux.entrySet().stream().max(Map.Entry.comparingByValue()).map(Map.Entry::getKey).orElse(null);
+	}
+	
+	
+}	
